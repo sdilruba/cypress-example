@@ -6,5 +6,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
-  includeShadowDom: true
+  includeShadowDom: true,
+  incognito: true
 });
