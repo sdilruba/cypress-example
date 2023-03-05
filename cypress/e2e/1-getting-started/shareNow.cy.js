@@ -6,12 +6,10 @@ describe('share now registration', () => {
   })
 
   it('registration without payment', () => {
-//    cy.get('[data-testid=uc-accept-all-button]').click()
-    cy.get('select[name=drivingLocation]', { timeout: 10000}).select('berlin')
-//    cy.get('input[type=email]').type(`${Date.now()}@aharotest.com`)
-    cy.location('pathname', {timeout: 900000})
-       .should('include', '/berlin/');
-    cy.get('input[type=email]').type('test@hotmail.de', {timeout: 20000})
+    cy.get('select[name=drivingLocation]', {timeout: 10000}).select('berlin')
+    cy.location('pathname', {timeout: 900000}).should('include', '/berlin/');
+    cy.reload()
+    cy.get('input[type=email]').type(`testemail${Date.now()}@web.com`, {timeout: 20000})
     cy.get('input[name=password]').type('12365')
     cy.get('input[name=pin]').type('4567')
     cy.get('select[name=salutation]').select('HERR')
