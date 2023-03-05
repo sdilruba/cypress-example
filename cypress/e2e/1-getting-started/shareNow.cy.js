@@ -25,6 +25,9 @@ describe('share now registration', () => {
     cy.get('input[name=mobilePhone]').type(`${Date.now()}`)
     cy.get('.checkbox [type=checkbox]').first().click({ force: true })
     cy.get('#registration-save-button').click()
-    console.log(cy.url().should('include', '/payment/') || cy.url().should('include', '/success/'))
+    cy.url().should('include', '/payment/')
+ //   console.log(cy.url().should('include', '/payment/') || cy.url().should('include', '/success'))
+ //   cy.url.should('include','/payment/'||'/success')
+
   })
 })
