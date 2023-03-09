@@ -2,10 +2,11 @@
 
 describe('share now registration', () => {
   beforeEach(() => {
-    cy.visit('https://www.share-now.com/de/en/registration/personal-data')
+    cy.visit('https://www.int.share-now.com/de/en/registration/personal-data')
   })
 
   it('registration without payment', () => {
+    cy.get('[data-testid=uc-accept-all-button]').click()
     cy.get('select[name=drivingLocation]').select('berlin')
     cy.location('pathname').should('include', '/berlin/');
     cy.reload()
@@ -26,8 +27,5 @@ describe('share now registration', () => {
     cy.get('.checkbox [type=checkbox]').first().click({ force: true })
     cy.get('#registration-save-button').click()
     cy.url().should('include', '/payment/')
- //   console.log(cy.url().should('include', '/payment/') || cy.url().should('include', '/success'))
- //   cy.url.should('include','/payment/'||'/success')
-
   })
 })
