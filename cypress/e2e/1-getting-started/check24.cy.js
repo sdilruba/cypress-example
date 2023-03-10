@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-
+import 'cypress-iframe'
 
 describe('check24 login', () => {
 
@@ -13,5 +13,9 @@ describe('check24 login', () => {
 
         cy.get('.c24-customer-hover').trigger('mouseover')
         cy.get('#c24-meinkonto-anmelden').click({force: true})
+
+        cy.frameLoaded('.c24-uli-loginlayer-iframe')
+        cy.iframe('.c24-uli-loginlayer-iframe').find('a.c24-uli-cl-r-start-trigger').should('be.visible').click()
+
     })
 })
