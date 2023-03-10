@@ -1,5 +1,5 @@
 const { defineConfig } = require("cypress");
-
+chromeWebSecurity: false,
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
