@@ -12,7 +12,7 @@ describe('check24 login', () => {
         cy.get('#c24-meinkonto-anmelden').click({force: true})
         cy.frameLoaded('.c24-uli-loginlayer-iframe')
         cy.iframe('.c24-uli-loginlayer-iframe').find('a.c24-uli-cl-r-start-trigger').should('be.visible').click()
-        cy.iframe('.c24-uli-loginlayer-iframe').find('#cl_login').type('aloalo@hotmail.de')
+        cy.iframe('.c24-uli-loginlayer-iframe').find('#cl_login').type(`test+${Date.now()}@gmail.com`)
         cy.iframe('.c24-uli-loginlayer-iframe').find('#c24-uli-login-btn').click()
         cy.iframe('.c24-uli-loginlayer-iframe').find('#cl_ul_firstname').type('betul')
         cy.iframe('.c24-uli-loginlayer-iframe').find('#cl_ul_lastname').type('betul')
